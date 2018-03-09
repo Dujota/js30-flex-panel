@@ -86,10 +86,30 @@
       width: 100%;
       transition: transform 0.5s;
       border: 1px solid red;
-      flex 1 0 auto;
+
+      /* centering the nested flexbox */
+      flex: 1 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    /* animations for the transitioning text */
+
+    .panel>*:first-child {
+      transform: translateY(-100%);
+    }
+
+    .panel.open-active>*:first-child {
+      transform: translateY(0);
+    }
+
+    .panel>*:last-child {
+      transform: translateY(100%)
+    }
+
+    .panel.open-active>*:last-child {
+      transform: translateY(0)
     }
 
     .panel p {
@@ -104,6 +124,8 @@
     }
 
     .panel.open {
+      /* add a transition sizing */
+      flex: 5;
       font-size: 40px;
     }
   </style>
